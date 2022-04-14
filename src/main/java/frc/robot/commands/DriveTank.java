@@ -25,10 +25,11 @@ public class DriveTank extends CommandBase{
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        double moveSpeed = -RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_MOVE_AXIS);
-        double rotateSpeed = RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_ROTATE_AXIS);
+        System.out.println("Initiating...");
+        double leftMotors = RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_RIGHT_MOTORS);
+        double rightMotors = -RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_LEFT_MOTORS);
 
-        RobotContainer.m_DriveTrain.tankDrive(moveSpeed, rotateSpeed);
+        RobotContainer.m_DriveTrain.tankDrive(leftMotors, rightMotors);
     }
 
     // Called once the command ends or is interrupted.

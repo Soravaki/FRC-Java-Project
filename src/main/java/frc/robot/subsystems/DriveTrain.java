@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -50,10 +49,12 @@ public class DriveTrain extends SubsystemBase{
     differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
     }
 
-    public void tankDrive(double moveSpeed, double rotateSpeed){
+    public void tankControls(double leftMotors, double rightMotors){
       // can be switched to tank drive
-        differentialDrive.tankDrive(moveSpeed, rotateSpeed);
+        differentialDrive.tankDrive(leftMotors, rightMotors);
     }
+
+    
 
     @Override
     public void periodic() {
