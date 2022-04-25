@@ -6,13 +6,14 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
+import frc.robot.Robot;
 import frc.robot.RobotContainer;
 
 /** Add your docs here. */
-public class DriveTank extends CommandBase{
+public class TeleopDrive extends CommandBase{
 
     // Drive Train constructor
-    public DriveTank(){
+    public TeleopDrive(){
         // Currently ends running commands using that subsystem to allow a new command to run
         addRequirements(RobotContainer.m_DriveTrain);
     }
@@ -26,17 +27,17 @@ public class DriveTank extends CommandBase{
     @Override
     public void execute() {
         System.out.println("Initiating...");
-        double leftMotors = RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_RIGHT_MOTORS);
-        double rightMotors = -RobotContainer.driverController.getRawAxis(Constants.DRIVER_CONTROLLER_LEFT_MOTORS);
+        double leftMotors = Robot.controllers.getPrimaryJoystick().getRawAxis(Constants.DRIVER_CONTROLLER_PRIMARY_RIGHT_TRIGGER);
+        double rightMotors = -Robot.controllers.getPrimaryJoystick().getRawAxis(Constants.DRIVER_CONTROLLER_PRIMARY_RIGHT_TRIGGER);
 
-        RobotContainer.m_DriveTrain.tankDrive(leftMotors, rightMotors);
+        Robot.m_robotContainer.getDriveTrain().tankControls(leftMotors, rightMotors);
     }
 
     // Called once the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
         // This will make the motors stop running when the command ends by setting movement speed and rotation speed to 0
-        RobotContainer.m_DriveTrain.tankDrive(0,0);
+        Robot.m_robotContainer.getDriveTrain().tankControls(0,0);
     }
 
     // Returns true when the command should end.

@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
 
 import frc.robot.subsystems.DriveTrain;
-import frc.robot.commands.DriveTank;
+import frc.robot.commands.TeleopDrive;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -33,7 +33,6 @@ public class RobotContainer {
   public static final DriveTrain m_DriveTrain = new DriveTrain();
 
   // Joystick controller defined here
-  public static Joystick driverController = new Joystick(Constants.DRIVER_CONTROLLER);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -41,7 +40,11 @@ public class RobotContainer {
     configureButtonBindings();
 
     // sets default commands on subsystems
-    m_DriveTrain.setDefaultCommand(new DriveTank());
+    m_DriveTrain.setDefaultCommand(new TeleopDrive());
+  }
+
+  public DriveTrain getDriveTrain(){
+    return m_DriveTrain;
   }
 
   /**

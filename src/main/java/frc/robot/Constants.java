@@ -20,10 +20,29 @@ public final class Constants {
     public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 2;
     public static final int DRIVETRAIN_RIGHT_MIDDLE_TALON = 3;
     public static final int DRIVETRAIN_RIGHT_BACK_TALON = 1;
+    public static final int DRIVETRAIN_MIDDLE_SPARKMAX = 7;
 
-    // Joysticks
-    public static final int DRIVER_CONTROLLER = 0;
-    public static final int DRIVER_CONTROLLER_LEFT_MOTORS = 1;
-    public static final int DRIVER_CONTROLLER_RIGHT_MOTORS = 5;
+    // Primary Joystick
+    public static final int DRIVER_CONTROLLER_PRIMARY_PORT = 0;
+    public static final int DRIVER_CONTROLLER_PRIMARY_LEFT_TRIGGER = 2;
+    public static final int DRIVER_CONTROLLER_PRIMARY_RIGHT_TRIGGER = 3;
+
+
+    public static final int DRIVER_CONTROLLER_PRIMARY_LEFT_X_AXIS = 0;
+    public static final int DRIVER_CONTROLLER_PRIMARY_LEFT_Y_AXIS = 1; 
+    public static final int DRIVER_CONTROLLER_PRIMARY_RIGHT_X_AXIS = 4; 
+
+
+    public static final int DRIVER_CONTROLLER_SECONDARY_PORT = 0;
+
     
+    /*
+    // Tank Drive Values, deleting soon once done probably
+    public static final int DRIVER_CONTROLLER_LEFT_MOTORS = 5;
+    public static final int DRIVER_CONTROLLER_RIGHT_MOTORS = 1;
+    public static final int DRIVER_CONTROLLER_MIDDLE_MOTORS = 1;
+    */
+
+    // Values
+    public static final double DEADBAND_VALUE = 0.1; // adjust deadband value for future
 }
