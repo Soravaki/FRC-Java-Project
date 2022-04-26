@@ -13,6 +13,15 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+    /**
+     * Subsystem Toggles
+     * (Enable and Disable on the fly)
+     */
+    public static boolean MODULES_INTAKE_ENABLED = true;
+
+    public static double INTAKE_MOTOR_SPEED = 0.9;
+
+
     // Talons
     public static final int DRIVETRAIN_LEFT_FRONT_TALON = 1;
     public static final int DRIVETRAIN_LEFT_MIDDLE_TALON = 2;
@@ -34,8 +43,8 @@ public final class Constants {
     public static final int DRIVER_CONTROLLER_PRIMARY_RIGHT_Y_AXIS = 5; 
 
 
-    public static final int DRIVER_CONTROLLER_SECONDARY_PORT = 0;
-
+    public static final int DRIVER_CONTROLLER_SECONDARY_PORT = 1;
+    public static final int DRIVER_CONTROLLER_SECONDARY_A_BUTTON = 1;
     
     /*
     // Tank Drive Values, deleting soon once done probably
@@ -46,4 +55,7 @@ public final class Constants {
 
     // Values
     public static final double DEADBAND_VALUE = 0.1; // adjust deadband value for future
+
+    public static final int SECONDARY_CONTROLLER_PORT = 1;
+
 }

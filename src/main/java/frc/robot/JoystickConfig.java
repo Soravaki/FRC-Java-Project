@@ -25,6 +25,10 @@ public class JoystickConfig {
         secondaryJoystick = new Joystick(Constants.DRIVER_CONTROLLER_SECONDARY_PORT);
     }
 
+    public void assignCommands() {
+        secondaryJoystick.getRawButton(DRIVER_CONTROLLER_SECONDARY_A_BUTTON).ifPresent(button -> button.whileHeld(new IntakeWheelCommand(1)));
+    }
+    
     public Joystick getPrimaryJoystick(){
         return primaryJoystick;
     }
