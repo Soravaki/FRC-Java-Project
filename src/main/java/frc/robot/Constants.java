@@ -17,7 +17,7 @@ public final class Constants {
      * Subsystem Toggles
      * (Enable and Disable on the fly)
      */
-    public static boolean MODULES_INTAKE_ENABLED = true;
+    public static boolean MODULES_INTAKE_ENABLED = false;
 
     public static double INTAKE_MOTOR_SPEED = 0.9;
 

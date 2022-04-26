@@ -5,6 +5,8 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.IntakeMotorCommand;
 
 /** Add your docs here. */
 public class JoystickConfig {
@@ -14,7 +16,7 @@ public class JoystickConfig {
 
     public JoystickConfig(){
         loadPrimaryJoystick();
-        loadSecondaryJoystick();
+        loadSecondaryJoystick();   
     }
 
     public void loadPrimaryJoystick(){
@@ -25,8 +27,11 @@ public class JoystickConfig {
         secondaryJoystick = new Joystick(Constants.DRIVER_CONTROLLER_SECONDARY_PORT);
     }
 
-    public void assignCommands() {
-        secondaryJoystick.getRawButton(DRIVER_CONTROLLER_SECONDARY_A_BUTTON).ifPresent(button -> button.whileHeld(new IntakeWheelCommand(1)));
+    public void assignCommands(){
+        if (Constants.MODULES_INTAKE_ENABLED){
+            JoystickButton a_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_A_BUTTON);
+            a_button.whenPressed(new IntakeMotorCommand(1));
+        }
     }
     
     public Joystick getPrimaryJoystick(){

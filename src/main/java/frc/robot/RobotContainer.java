@@ -5,12 +5,15 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
 
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.commands.TankDrive;
 import frc.robot.commands.RocketDrive;
+
+import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -30,22 +33,35 @@ public class RobotContainer {
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
-  public static final DriveTrain m_DriveTrain = new DriveTrain();
+  public static DriveTrain m_DriveTrain;
+  private static Intake intake;
 
   // Joystick controller defined here
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    // Configure the button bindings
-    configureButtonBindings();
-
     // sets default commands on subsystems
-    //m_DriveTrain.setDefaultCommand(new TankDrive());
+    enableSubsystems();
+  
+    // Configure the button bindings
+    Robot.controllers.assignCommands();
+  }
+
+  public void enableSubsystems(){
+    m_DriveTrain = new DriveTrain();
     m_DriveTrain.setDefaultCommand(new RocketDrive());
+
+    if (Constants.MODULES_INTAKE_ENABLED){
+      intake = new Intake();
+    }
   }
 
   public DriveTrain getDriveTrain(){
     return m_DriveTrain;
+  }
+
+  public Intake getIntake(){
+    return intake;
   }
 
   /**
@@ -65,4 +81,5 @@ public class RobotContainer {
     // An ExampleCommand will run in autonomous
     return m_autoCommand;
   }
+
 }
