@@ -53,7 +53,12 @@ public class DriveTrain extends SubsystemBase{
 
       leftMotors = new MotorControllerGroup(leftFrontTalon, leftMiddleTalon, leftBackTalon);
       rightMotors = new MotorControllerGroup(rightFrontTalon, rightMiddleTalon, rightBackTalon);
+      leftMotors.setInverted(true);
+
+      
+
       differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
+
     }
 
     // tank drive method
@@ -65,9 +70,9 @@ public class DriveTrain extends SubsystemBase{
       drive = new RocketLeagueDrive(differentialDrive, 
       Robot.controllers.getPrimaryJoystick(),
       Constants.DRIVER_CONTROLLER_PRIMARY_LEFT_TRIGGER, 
-      Constants.DRIVER_CONTROLLER_PRIMARY_RIGHT_TRIGGER, 
-      Constants.DRIVER_CONTROLLER_PRIMARY_RIGHT_X_AXIS, 
-      Constants.DRIVER_CONTROLLER_PRIMARY_LEFT_Y_AXIS);
+      Constants.DRIVER_CONTROLLER_PRIMARY_RIGHT_TRIGGER,  
+      Constants.DRIVER_CONTROLLER_PRIMARY_LEFT_Y_AXIS,
+      Constants.DRIVER_CONTROLLER_PRIMARY_RIGHT_X_AXIS);
     }
 
     public RocketLeagueDrive getDrive(){
