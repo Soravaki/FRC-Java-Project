@@ -29,8 +29,8 @@ public class TankDrive extends CommandBase{
     @Override
     public void execute() {
         System.out.println("Initiating...");
-        double leftMotors = Robot.controllers.getPrimaryJoystick().getRawAxis(Constants.DRIVER_CONTROLLER_PRIMARY_RIGHT_TRIGGER);
-        double rightMotors = -Robot.controllers.getPrimaryJoystick().getRawAxis(Constants.DRIVER_CONTROLLER_PRIMARY_RIGHT_TRIGGER);
+        double leftMotors = -Robot.controllers.getPrimaryJoystick().getRawAxis(Constants.DRIVER_CONTROLLER_PRIMARY_LEFT_Y_AXIS);
+        double rightMotors = Robot.controllers.getPrimaryJoystick().getRawAxis(Constants.DRIVER_CONTROLLER_PRIMARY_RIGHT_Y_AXIS);
 
         Robot.m_robotContainer.getDriveTrain().tankControls(leftMotors, rightMotors); 
     }
