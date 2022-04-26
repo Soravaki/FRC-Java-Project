@@ -14,12 +14,12 @@ package frc.robot;
  */
 public final class Constants {
     // Talons
-    public static final int DRIVETRAIN_LEFT_FRONT_TALON = 5;
-    public static final int DRIVETRAIN_LEFT_MIDDLE_TALON = 6;
-    public static final int DRIVETRAIN_LEFT_BACK_TALON = 4;
-    public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 2;
-    public static final int DRIVETRAIN_RIGHT_MIDDLE_TALON = 3;
-    public static final int DRIVETRAIN_RIGHT_BACK_TALON = 1;
+    public static final int DRIVETRAIN_LEFT_FRONT_TALON = 1;
+    public static final int DRIVETRAIN_LEFT_MIDDLE_TALON = 2;
+    public static final int DRIVETRAIN_LEFT_BACK_TALON = 3;
+    public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 4;
+    public static final int DRIVETRAIN_RIGHT_MIDDLE_TALON = 5;
+    public static final int DRIVETRAIN_RIGHT_BACK_TALON = 6;
     public static final int DRIVETRAIN_MIDDLE_SPARKMAX = 7;
 
     // Primary Joystick
