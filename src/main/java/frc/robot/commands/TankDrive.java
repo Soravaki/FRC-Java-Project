@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.Robot;
-import frc.robot.RobotContainer;
 
 /** Add your docs here. */
 public class TankDrive extends CommandBase{
@@ -16,7 +15,7 @@ public class TankDrive extends CommandBase{
     // Drive Train constructor
     public TankDrive(){
         // Currently ends running commands using that subsystem to allow a new command to run
-        addRequirements(RobotContainer.m_DriveTrain);
+        addRequirements(Robot.m_robotContainer.getDriveTrain());
     }
 
     // Called when the command is initially scheduled.

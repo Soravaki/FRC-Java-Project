@@ -4,17 +4,14 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.ExampleCommand;
-
-import frc.robot.subsystems.DriveTrain;
-import frc.robot.commands.TankDrive;
 import frc.robot.commands.RocketDrive;
+import frc.robot.subsystems.BallHandlingSubsystems;
+import frc.robot.subsystems.DriveTrain;
 
-import frc.robot.subsystems.Intake;
+//import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.ExampleSubsystem;
+//import frc.robot.subsystems.Indexer;
 import edu.wpi.first.wpilibj2.command.Command;
 
 
@@ -30,11 +27,12 @@ public class RobotContainer {
 
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   public static DriveTrain m_DriveTrain;
-  private static Intake intake;
+  public static BallHandlingSubsystems m_BallHandlingSubsystems;
+  /* public static Intake intake;
+  public static Indexer indexer; */
 
   // Joystick controller defined here
 
@@ -50,18 +48,16 @@ public class RobotContainer {
   public void enableSubsystems(){
     m_DriveTrain = new DriveTrain();
     m_DriveTrain.setDefaultCommand(new RocketDrive());
-
-    if (Constants.MODULES_INTAKE_ENABLED){
-      intake = new Intake();
-    }
+    m_BallHandlingSubsystems = new BallHandlingSubsystems();
   }
+
 
   public DriveTrain getDriveTrain(){
     return m_DriveTrain;
   }
 
-  public Intake getIntake(){
-    return intake;
+  public BallHandlingSubsystems getBallHandlingSubsystems(){
+    return m_BallHandlingSubsystems;
   }
 
   /**
@@ -70,7 +66,7 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  /* private void configureButtonBindings() {} */
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.

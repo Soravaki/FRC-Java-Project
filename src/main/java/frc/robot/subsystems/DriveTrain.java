@@ -15,7 +15,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 import frc.robot.Robot;
 
-
 /** Add your docs here. */
 public class DriveTrain extends SubsystemBase{
     // Put methods for controlling this subsystem
@@ -53,12 +52,14 @@ public class DriveTrain extends SubsystemBase{
 
       leftMotors = new MotorControllerGroup(leftFrontTalon, leftMiddleTalon, leftBackTalon);
       rightMotors = new MotorControllerGroup(rightFrontTalon, rightMiddleTalon, rightBackTalon);
+
+      // inverts the left side motors so they both go forward with a positive value
       leftMotors.setInverted(true);
 
       
 
       differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
-
+      //setDefaultCommand(new RocketDrive());
     }
 
     // tank drive method
@@ -78,5 +79,6 @@ public class DriveTrain extends SubsystemBase{
     public RocketLeagueDrive getDrive(){
       return drive;
     }
+
   }
 
