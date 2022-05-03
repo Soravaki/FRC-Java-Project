@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.FeederMotorCommand;
 import frc.robot.commands.IndexerMotorCommand;
 import frc.robot.commands.IntakeMotorCommand;
+import frc.robot.commands.OrchestraCommand;
 import frc.robot.commands.ShooterMotorCommand;
 
 /** Add your docs here. */
@@ -34,14 +35,16 @@ public class JoystickConfig {
         if (Constants.MODULES_INTAKE_ENABLED){
             JoystickButton a_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_A_BUTTON);
             a_button.whenHeld(new IntakeMotorCommand(-1));
-            JoystickButton b_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_B_BUTTON);
-            b_button.whenHeld(new IndexerMotorCommand());
-            JoystickButton x_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_X_BUTTON);
-            x_button.whenHeld(new FeederMotorCommand());
-            JoystickButton y_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_Y_BUTTON);
-            y_button.whenHeld(new ShooterMotorCommand());
         }
-    }
+        JoystickButton b_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_B_BUTTON);
+        b_button.whenHeld(new IndexerMotorCommand());
+        JoystickButton x_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_X_BUTTON);
+        x_button.whenHeld(new FeederMotorCommand());
+        JoystickButton y_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_Y_BUTTON);
+        y_button.whenHeld(new ShooterMotorCommand());
+        JoystickButton start_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_START_BUTTON);
+        start_button.whenPressed(new OrchestraCommand());
+        }
     
     public Joystick getPrimaryJoystick(){
         return primaryJoystick;

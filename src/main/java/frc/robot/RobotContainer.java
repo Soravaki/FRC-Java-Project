@@ -5,12 +5,14 @@
 package frc.robot;
 
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.OrchestraCommand;
 import frc.robot.commands.RocketDrive;
 import frc.robot.subsystems.BallHandlingSubsystems;
 import frc.robot.subsystems.DriveTrain;
 
 //import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.OrchestraSubsystem;
 //import frc.robot.subsystems.Indexer;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -31,6 +33,8 @@ public class RobotContainer {
 
   public static DriveTrain m_DriveTrain;
   public static BallHandlingSubsystems m_BallHandlingSubsystems;
+  public static OrchestraSubsystem m_OrchestraSubsystem;
+
   /* public static Intake intake;
   public static Indexer indexer; */
 
@@ -49,6 +53,8 @@ public class RobotContainer {
     m_DriveTrain = new DriveTrain();
     m_DriveTrain.setDefaultCommand(new RocketDrive());
     m_BallHandlingSubsystems = new BallHandlingSubsystems();
+    m_OrchestraSubsystem = new OrchestraSubsystem();
+    //m_OrchestraSubsystem.setDefaultCommand(new OrchestraCommand())
   }
 
 

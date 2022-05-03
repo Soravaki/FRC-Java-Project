@@ -42,6 +42,7 @@ public final class Constants {
     public static final int SHOOTER_MOTOR = 9;
     public static final int INDEXER_MOTOR = 10;
     public static final int VICTOR_MOTOR = 11;
+    public static final int ORCHESTRA_MOTOR = 15;
 
     // Primary Joystick
     public static final int DRIVER_CONTROLLER_PRIMARY_PORT = 0;
@@ -60,6 +61,9 @@ public final class Constants {
     public static final int DRIVER_CONTROLLER_SECONDARY_B_BUTTON = 2;
     public static final int DRIVER_CONTROLLER_SECONDARY_X_BUTTON = 3;
     public static final int DRIVER_CONTROLLER_SECONDARY_Y_BUTTON = 4;
+
+    public static final int DRIVER_CONTROLLER_SECONDARY_SELECT_BUTTON = 7;
+    public static final int DRIVER_CONTROLLER_SECONDARY_START_BUTTON = 8;
     /*
     // Tank Drive Values, deleting soon once done probably
     public static final int DRIVER_CONTROLLER_LEFT_MOTORS = 5;
