@@ -5,16 +5,11 @@
 package frc.robot.subsystems;
 
 import java.util.ArrayList;
-import java.io.*;
 
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.music.Orchestra;
 
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import edu.wpi.first.wpilibj2.command.button.POVButton;
 import frc.robot.Constants;
-import frc.robot.Robot;
-import frc.robot.RobotContainer;
 
 /** Add your docs here. */
 public class OrchestraSubsystem {
@@ -55,10 +50,9 @@ public class OrchestraSubsystem {
     public void playSong(){
         orchestra.loadMusic(songs[songNum]);
         orchestra.play();
-        //orchestra.loadMusic("SeaShanty2.chrp");
     }
 
-    public void nextSong(){
+    /* public void nextSong(){
         songNum++;
         if (songs.length >= songNum){
             songNum = 0;
@@ -76,6 +70,17 @@ public class OrchestraSubsystem {
         System.out.println("PrevSong: " + songNum);
         orchestra.loadMusic(songs[songNum]);
         orchestra.play();
+    } */
+
+    public void loadSong(int offset){
+        songNum+=offset;
+        if (songNum >= songs.length){
+            songNum = 0;
+        }
+        if (songNum < 0){
+            songNum = songs.length-1;
+        }
+        orchestra.loadMusic(songs[songNum]);
     }
 
     public void stopSong(){
