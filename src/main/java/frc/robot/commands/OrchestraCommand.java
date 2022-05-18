@@ -30,11 +30,12 @@ public class OrchestraCommand extends CommandBase {
 
    @Override
    public void execute(){
-    int dPadVal = Robot.controllers.getSecondaryJoystick().getPOV();
+    m_OrchestraSubsystem.playSong();
+    /* int dPadVal = Robot.controllers.getSecondaryJoystick().getPOV();
     if (dPadVal == 90) m_OrchestraSubsystem.loadSong(1);
     else if (dPadVal == 180) m_OrchestraSubsystem.stopSong();
     else if (dPadVal == 270) m_OrchestraSubsystem.loadSong(-1);
-    else if (dPadVal == 0) m_OrchestraSubsystem.playSong();
+    else if (dPadVal == 0) m_OrchestraSubsystem.playSong(); */
    }
 
    // Returns true when the command should end.

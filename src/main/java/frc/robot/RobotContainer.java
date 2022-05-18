@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import frc.robot.commands.ClimbCommand;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.OrchestraCommand;
 import frc.robot.commands.RocketDrive;

@@ -18,7 +18,7 @@ public final class Constants {
      * (Enable and Disable on the fly)
      */
     public static boolean MODULES_INTAKE_ENABLED = true;
-    public static boolean MODULES_PNEUMATICS_ENABLED = false;
+    public static boolean MODULES_PNEUMATICS_ENABLED = true;
     public static boolean MODULES_INDEXER_ENABLED = true;
     public static boolean MODULES_SHOOTER_ENABLED = true;
 

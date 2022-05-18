@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -22,12 +24,12 @@ public class BallHandlingSubsystems extends SubsystemBase{
     CANSparkMax shooterMotor = null;
     VictorSPX victorMotor = null;
 
-    Solenoid solenoidMotor = null;
+    Solenoid solenoid = null;
 
     public BallHandlingSubsystems(){
-        /* if (Constants.MODULES_PNEUMATICS_ENABLED){
+        if (Constants.MODULES_PNEUMATICS_ENABLED){
             loadPistons();
-        } */
+        } 
         if (Constants.MODULES_INTAKE_ENABLED){
             loadIntakeMotors();
         }
@@ -77,7 +79,13 @@ public class BallHandlingSubsystems extends SubsystemBase{
             victorMotor.set(ControlMode.PercentOutput, value);
         }
     }
-    /* public void loadPistons(){
-        solenoidMotor = new Solenoid(PneumaticsModuleType.REVPH, Constants.INTAKE_SOLENOID_MOTOR);
-    } */
+     public void loadPistons(){
+        solenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.INTAKE_SOLENOID_MOTOR);
+        Compressor compressor = new Compressor(1, PneumaticsModuleType.REVPH);
+    } 
+
+    public void setPistons(boolean status){
+        solenoid.set(status);
+        
+    } 
 }

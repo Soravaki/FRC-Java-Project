@@ -6,6 +6,8 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.POVButton;
+import frc.robot.commands.ClimbCommand;
 import frc.robot.commands.FeederMotorCommand;
 import frc.robot.commands.IndexerMotorCommand;
 import frc.robot.commands.IntakeMotorCommand;
@@ -32,6 +34,7 @@ public class JoystickConfig {
     }
 
     public void assignCommands(){
+        
         if (Constants.MODULES_INTAKE_ENABLED){
             JoystickButton a_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_A_BUTTON);
             a_button.whenHeld(new IntakeMotorCommand(-1));
@@ -44,6 +47,12 @@ public class JoystickConfig {
         y_button.whenHeld(new ShooterMotorCommand());
         JoystickButton start_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_START_BUTTON);
         start_button.whenPressed(new OrchestraCommand());
+        // JoystickButton select_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_SELECT_BUTTON);
+        // select_button.whenPressed(new ClimbCommand(false));
+        POVButton UpPov = new POVButton(secondaryJoystick, 0);
+        UpPov.whenPressed(new ClimbCommand(true));
+        POVButton DownPov = new POVButton(secondaryJoystick, 180);
+        DownPov.whenPressed(new ClimbCommand(false));
         }
     
     public Joystick getPrimaryJoystick(){
