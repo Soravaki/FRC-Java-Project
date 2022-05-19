@@ -37,7 +37,8 @@ public final class Constants {
     public static final int DRIVETRAIN_MIDDLE_SPARKMAX = 7;
 
     public static final int INTAKE_MOTOR = 8;
-    public static final int INTAKE_SOLENOID_MOTOR = 0;
+    public static final int CLIMB_SOLENOID_MOTOR = 0;
+    public static final int INTAKE_SOLENOID_MOTOR = 2;
 
     public static final int SHOOTER_MOTOR = 9;
     public static final int INDEXER_MOTOR = 10;

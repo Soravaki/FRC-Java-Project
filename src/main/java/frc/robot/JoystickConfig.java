@@ -11,6 +11,7 @@ import frc.robot.commands.ClimbCommand;
 import frc.robot.commands.FeederMotorCommand;
 import frc.robot.commands.IndexerMotorCommand;
 import frc.robot.commands.IntakeMotorCommand;
+import frc.robot.commands.IntakePistonCommand;
 import frc.robot.commands.OrchestraCommand;
 import frc.robot.commands.ShooterMotorCommand;
 
@@ -47,12 +48,16 @@ public class JoystickConfig {
         y_button.whenHeld(new ShooterMotorCommand());
         JoystickButton start_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_START_BUTTON);
         start_button.whenPressed(new OrchestraCommand());
-        // JoystickButton select_button = new JoystickButton(secondaryJoystick, Constants.DRIVER_CONTROLLER_SECONDARY_SELECT_BUTTON);
-        // select_button.whenPressed(new ClimbCommand(false));
+
+        // dPad Commands
         POVButton UpPov = new POVButton(secondaryJoystick, 0);
         UpPov.whenPressed(new ClimbCommand(true));
         POVButton DownPov = new POVButton(secondaryJoystick, 180);
         DownPov.whenPressed(new ClimbCommand(false));
+        POVButton RightPOV = new POVButton(secondaryJoystick, 90);
+        RightPOV.whenPressed(new IntakePistonCommand(true));
+        POVButton LeftPOV = new POVButton(secondaryJoystick, 270);
+        LeftPOV.whenPressed(new IntakePistonCommand(false));
         }
     
     public Joystick getPrimaryJoystick(){

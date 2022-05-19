@@ -24,7 +24,7 @@ public class BallHandlingSubsystems extends SubsystemBase{
     CANSparkMax shooterMotor = null;
     VictorSPX victorMotor = null;
 
-    Solenoid solenoid = null;
+    Solenoid climbSolenoid, intakeSolenoid = null;
 
     public BallHandlingSubsystems(){
         if (Constants.MODULES_PNEUMATICS_ENABLED){
@@ -80,12 +80,16 @@ public class BallHandlingSubsystems extends SubsystemBase{
         }
     }
      public void loadPistons(){
-        solenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.INTAKE_SOLENOID_MOTOR);
-        Compressor compressor = new Compressor(1, PneumaticsModuleType.REVPH);
+        climbSolenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.CLIMB_SOLENOID_MOTOR);
+        intakeSolenoid = new Solenoid(PneumaticsModuleType.CTREPCM, Constants.INTAKE_SOLENOID_MOTOR);
+        //Compressor compressor = new Compressor(1, PneumaticsModuleType.REVPH);
     } 
 
-    public void setPistons(boolean status){
-        solenoid.set(status);
-        
+    public void setClimb(boolean status){
+        climbSolenoid.set(status);
     } 
+
+    public void setIntakeSolenoid(boolean status){
+        intakeSolenoid.set(status);
+    }
 }

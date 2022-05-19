@@ -40,12 +40,16 @@ public class RocketLeagueDrive{
         if(isStopped(leftTrigger ,rightTrigger)) {
             drive.tankDrive(0, 0);
         } else {
-            double speed = stick.getRawAxis(leftYAxis);
+            /* double speed = stick.getRawAxis(leftYAxis);
             speed *= -.5;
             speed += .5;
-            speed = applyDirection(Math.abs(speed), leftTrigger, rightTrigger);
+            speed = applyDirection(Math.abs(speed), leftTrigger, rightTrigger); */
             double turnRotation = stick.getRawAxis(rightXAxis) * -1;
-            drive.arcadeDrive(speed, turnRotation);
+            //drive.arcadeDrive(speed, turnRotation);
+            // rightTrigger-leftTrigger allows for the Triggers to have pressure
+            double trigger = rightTrigger-leftTrigger;
+            if (Math.abs(rightTrigger-leftTrigger) < 0.1) trigger = 0;
+            drive.arcadeDrive(trigger, turnRotation);
         }
     }
 

@@ -11,10 +11,10 @@ import frc.robot.RobotContainer;
 import frc.robot.subsystems.BallHandlingSubsystems;
 
 /** Add your docs here. */
-public class ClimbCommand extends CommandBase {
+public class IntakePistonCommand extends CommandBase {
     private BallHandlingSubsystems m_BallHandlingSubsystems;
     private boolean active;
-    public ClimbCommand(boolean active){
+    public IntakePistonCommand(boolean active){
         this.active = active;
         m_BallHandlingSubsystems = RobotContainer.m_BallHandlingSubsystems;
     }
@@ -23,13 +23,13 @@ public class ClimbCommand extends CommandBase {
    @Override
    public void initialize() {
         addRequirements(RobotContainer.m_BallHandlingSubsystems);
-        m_BallHandlingSubsystems.setClimb(active);
+        m_BallHandlingSubsystems.setIntakeSolenoid(active);
    }
 
    // Called once the command ends or is interrupted.
    @Override
    public void end(boolean interrupted) {
-    m_BallHandlingSubsystems.setClimb(false);
+    m_BallHandlingSubsystems.setIntakeSolenoid(false);
    }
 
    // Returns true when the command should end.
